@@ -1,0 +1,24 @@
+{
+    "name": "phpbook/email",
+    "type": "library",
+    "description": "PHP Email Library",
+    "keywords": ["php","email", "fast", "lightweight"],
+    "homepage": "https://github.com/phpbook-sources/email",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "PHPBook",
+            "email": "phpbook@programmer.net",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "phpmailer/phpmailer": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "PHPBook\\Email\\": "library/"
+        }
+    }
+}
