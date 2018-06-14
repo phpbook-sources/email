@@ -1,7 +1,7 @@
 {
     "name": "phpbook/email",
     "type": "library",
-    "description": "PHP Email Library",
+    "description": "PHP Email Library For AWSSES, MAILGUN, SMTP, SPARKPOST",
     "keywords": ["php","email", "fast", "lightweight"],
     "homepage": "https://github.com/phpbook-sources/email",
     "license": "MIT",
