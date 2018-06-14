@@ -81,7 +81,7 @@ class SMTP extends Adapter {
 
     public function dispatch(\PHPBook\Email\Message $message): Bool {
 				
-		$mail = new \PHPMailer\PHPMailer\PHPMailer(true);
+		$mail = new \PHPBook\Email\Driver\Third\PHPMailer\PHPMailer(true);
 
 		try {
 
