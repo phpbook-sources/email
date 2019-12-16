@@ -12,7 +12,7 @@ class Message {
 
     private $content;
 
-    private $attach;
+    private $attach = [];
 
     public function setTo(Array $to): Message {
     	$this->to = $to;
