@@ -136,7 +136,7 @@ class SMTP extends Adapter {
 	
 				} else {
 					
-					$mail->AddStringAttachment($attach->getFileBuffer(), $fileAlias), 'binary', $finfo->buffer($attach->getFileBuffer()));
+					$mail->AddStringAttachment($attach->getFileBuffer(), $fileAlias, 'binary', $finfo->buffer($attach->getFileBuffer()));
 	
 				};
 	
