@@ -39,7 +39,8 @@
 			->setPassword('password')
 			->setSecure('tls')
 			->setEmail('email@email.com')
-			->setName('Jhon'))
+			->setName('Jhon')
+			->setEncode('utf8'))
 );
 
 //Driver connection AWSSES

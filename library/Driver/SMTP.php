@@ -16,6 +16,8 @@ class SMTP extends Adapter {
 
     private $name;
 
+    private $encode;
+
     public function getHost(): String {
     	return $this->host;
     }
@@ -79,6 +81,15 @@ class SMTP extends Adapter {
 		return $this;
 	}
 
+	public function getEncode(): String {
+		return $this->encode;
+	}
+
+	public function setEncode(String $encode): SMTP {
+		$this->encode = $encode;
+		return $this;
+	}
+
     public function dispatch(\PHPBook\Email\Message $message): Bool {
 				
 		$mail = new \PHPBook\Email\Driver\Third\PHPMailer\PHPMailer(true);
@@ -117,21 +128,23 @@ class SMTP extends Adapter {
 
 			foreach($message->getAttach() as $attach) {
 
+				$fileAlias = strtolower($this->getEncode()) == 'utf8' ? utf8_decode($attach->getFileAlias()) : $attach->getFileAlias();
+
 				if ($attach->getFilePath()) {
 	
-					$mail->addAttachment($attach->getFilePath(), utf8_decode($attach->getFileAlias()));
+					$mail->addAttachment($attach->getFilePath(), $fileAlias);
 	
 				} else {
 					
-					$mail->AddStringAttachment($attach->getFileBuffer(), utf8_decode($attach->getFileAlias()), 'binary', $finfo->buffer($attach->getFileBuffer()));
+					$mail->AddStringAttachment($attach->getFileBuffer(), $fileAlias), 'binary', $finfo->buffer($attach->getFileBuffer()));
 	
 				};
 	
 			};
 
 			$mail->isHTML(true);
-			$mail->Subject = utf8_decode($message->getSubject());
-			$mail->Body    = $message->getContent();
+			$mail->Subject = strtolower($this->getEncode()) == 'utf8' ? utf8_decode($message->getSubject()) : $message->getSubject();
+			$mail->Body    = strtolower($this->getEncode()) == 'utf8' ? utf8_decode($message->getContent()) : $message->getContent();
 
 			$mail->send();
 
