@@ -62,7 +62,7 @@ class AWSSES extends Adapter  {
 		$key = $this->getKey();
 		$secret = $this->getSecret();
 		$host = 'email.' . $this->getRegion() . '.amazonaws.com';
-		$from = $this->getEmail();
+		$from = $message->getFromEmail() ? $message->getFromEmail() : $this->getEmail();
 		
 		$to = $message->getTo();	
 		$bcc = $message->getCco();

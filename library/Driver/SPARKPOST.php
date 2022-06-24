@@ -145,8 +145,8 @@ class SPARKPOST extends Adapter {
 			'recipients' => $recipients,
 			'content' => [
 				'from' => [
-					'name' => $this->getName(),
-					'email' => $this->getEmail()
+					'name' => $message->getFromName() ? $message->getFromName() : $this->getName(),
+					'email' => $message->getFromEmail() ? $message->getFromEmail() : $this->getEmail()
 				],
 				'headers' => [
 					'CC' => implode(',', $recipe_cc)

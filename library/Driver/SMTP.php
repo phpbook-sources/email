@@ -104,7 +104,7 @@ class SMTP extends Adapter {
 			$mail->Password = $this->getPassword();
 			$mail->SMTPSecure = $this->getSecure();
 			$mail->Port = $this->getPort();
-			$mail->setFrom($this->getEmail(), $this->getName());
+			$mail->setFrom($message->getFromEmail() ? $message->getFromEmail() : $this->getEmail(), $message->getFromName() ? $message->getFromName() : $this->getName());
 			
 			if ($message->getTo()) {
 				foreach($message->getTo() as $to) {

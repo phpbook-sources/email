@@ -79,7 +79,7 @@ class MAILGUN extends Adapter  {
 		};
 		
 		$post_data = [
-			'from' => $this->getName() .'<'.$this->getEmail().'>',
+			'from' => ($message->getFromName() ? $message->getFromName() : $this->getName()) .'<'.($message->getFromEmail() ? $message->getFromEmail() : $this->getEmail()).'>',
 			'to' => implode(',', $message->getTo() ? $message->getTo() : []),
 			'cc' => implode(',', $message->getCc() ? $message->getCc() : []),
 			'bcc' => implode(',', $message->getCco() ? $message->getCco() : []),

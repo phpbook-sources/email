@@ -124,6 +124,8 @@ foreach($connections as $code => $connection) {
 		->setConnectionCode('other')
 		->setMessage(
 			(new \PHPBook\Email\Message)
+				->setFromName('example@email.com') //custom from name. not required.
+				->setFromEmail('example@email.com') //custom from email. not required.
 				->setTo(['jhon@email.com'])
 				->setCc(['paul@email.com'])
 				->setCco(['ana@email.com'])

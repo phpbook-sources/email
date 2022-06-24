@@ -2,6 +2,10 @@
 
 class Message {
 
+    private $fromName;
+
+    private $fromEmail;
+
     private $to;
 
     private $cc;
@@ -13,6 +17,24 @@ class Message {
     private $content;
 
     private $attach = [];
+
+    public function setFromName(String $fromName): Message {
+        $this->fromName = $fromName
+        return $this;
+    }
+
+    public function getFromName(): ?String {
+        return $this->fromName;
+    }
+
+    public function setFromEmail(String $fromEmail): Message {
+        $this->fromEmail = $fromEmail;
+        return $this;
+    }
+
+    public function getFromEmail(): ?String {
+        return $this->fromEmail;
+    }
 
     public function setTo(Array $to): Message {
     	$this->to = $to;
