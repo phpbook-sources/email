@@ -19,7 +19,7 @@ class Message {
     private $attach = [];
 
     public function setFromName(String $fromName): Message {
-        $this->fromName = $fromName
+        $this->fromName = $fromName;
         return $this;
     }
 
